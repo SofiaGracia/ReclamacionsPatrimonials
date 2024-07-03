@@ -1,0 +1,8 @@
+<odoo>
+    <record id="seq_reclamacio_patrimonial" model="ir.sequence">
+        <field name="name">Reclamació Patrimonial</field>
+        <field name="code">reclamacio.patrimonial</field>
+        <field name="prefix">RP</field>
+        <field name="padding">4</field>
+    </record>
+</odoo>

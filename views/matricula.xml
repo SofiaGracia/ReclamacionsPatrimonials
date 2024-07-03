@@ -1,0 +1,16 @@
+<odoo>
+    <data>
+
+        <record id="view_reclamacio_matricula_tree" model="ir.ui.view">
+            <field name="name">reclamacio.matricula.tree</field>
+            <field name="model">reclamacio.matricula</field>
+            <field name="arch" type="xml">
+                <tree string="Matrículas">
+                    <field name="matricula" />
+                </tree>
+            </field>
+        </record>
+
+    </data>
+
+</odoo>

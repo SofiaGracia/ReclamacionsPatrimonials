@@ -1,19 +1,35 @@
 <odoo>
   <data>
-    <!-- explicit list view definition -->
 
-    <record model="ir.ui.view" id="rp.reclamacio_list">
-      <field name="name">reclamacio.patrimonial.list</field>
+    <!-- Vistas de lista y formulario para Reclamacio -->
+
+    <record id="view_reclamacio_tree" model="ir.ui.view">
+      <field name="name">reclamacio.patrimonial.tree</field>
       <field name="model">reclamacio.patrimonial</field>
       <field name="arch" type="xml">
-        <tree string="Reclamació Patrimonial">
-          <field name="tipus_dany"/>
+        <tree string="Llista de Reclamacions">
+          <field name="name" />
+          <field name="tipus_dany" />
+          <!-- Otros campos que desees mostrar en la vista de lista -->
         </tree>
       </field>
     </record>
 
-
-    <!-- actions opening views on models -->
+    <record id="view_reclamacio_form" model="ir.ui.view">
+      <field name="name">reclamacio.patrimonial.form</field>
+      <field name="model">reclamacio.patrimonial</field>
+      <field name="arch" type="xml">
+        <form string="Reclamació Patrimonial Form">
+          <sheet>
+            <group>
+              <field name="tipus_dany" />
+              <field name="matriculas_afectadas" attrs="{'invisible': [('tipus_dany', '!=', 'vehicle')]}"/>
+            </group>
+          </sheet>
+        </form>
+      </field>
+    </record>
+    <!-- Acción para abrir vistas en el modelo -->
 
     <record model="ir.actions.act_window" id="rp.action_reclamacio_window">
       <field name="name">Reclamacions</field>
@@ -21,42 +37,18 @@
       <field name="view_mode">tree,form</field>
     </record>
 
+    <!-- Elemento de menú superior -->
 
-    <!-- server action to the one above -->
-<!--
-    <record model="ir.actions.server" id="rp.action_server">
-      <field name="name">rp server</field>
-      <field name="model_id" ref="model_rp_rp"/>
-      <field name="state">code</field>
-      <field name="code">
-        action = {
-          "type": "ir.actions.act_window",
-          "view_mode": "tree,form",
-          "res_model": model._name,
-        }
-      </field>
-    </record>
--->
+    <menuitem name="Reclamacions" id="rp.menu_root" />
 
-    <!-- Top menu item -->
+    <!-- Categorías de menú -->
 
-    <menuitem name="Reclamacions" id="rp.menu_root"/>
+    <menuitem name="Reclamacions" id="rp.menu_1" parent="rp.menu_root" />
 
-    <!-- menu categories -->
-
-    <menuitem name="Reclamacions" id="rp.menu_1" parent="rp.menu_root"/>
-
-<!--   
-    <menuitem name="Menu 2" id="rp.menu_2" parent="rp.menu_root"/>
--->
-    <!-- actions -->
+    <!-- Acciones -->
 
     <menuitem name="Reclamacions" id="rp.menu_1_Reclamacio_list" parent="rp.menu_1"
-              action="rp.action_reclamacio_window"/>
+      action="rp.action_reclamacio_window" />
 
-<!--
-    <menuitem name="Server to list" id="rp" parent="rp.menu_2"
-              action="rp.action_server"/>
--->
   </data>
 </odoo>
