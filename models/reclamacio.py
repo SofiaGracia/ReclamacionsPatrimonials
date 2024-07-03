@@ -18,6 +18,9 @@ class Reclamacio(models.Model):
 
     matriculas_afectadas = fields.Many2many('reclamacio.matricula', string='Matrículas afectadas')
 
+    ciudadano_id = fields.Many2many('res.partner', string='Ciudadano')
+
+
     @api.model
     def create(self, vals):
         if vals.get('name', 'New') == 'New':

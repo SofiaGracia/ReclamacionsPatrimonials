@@ -24,6 +24,7 @@
             <group>
               <field name="tipus_dany" />
               <field name="matriculas_afectadas" attrs="{'invisible': [('tipus_dany', '!=', 'vehicle')]}"/>
+              <field name="ciudadano_id" />
             </group>
           </sheet>
         </form>
