@@ -20,6 +20,10 @@ class Reclamacio(models.Model):
 
     ciudadano_id = fields.Many2many('res.partner', string='Ciudadano')
 
+    descripcio_dany = fields.Text(string='Descripción del Daño')
+
+    #Hi ha que posar la localització del dany
+
 
     @api.model
     def create(self, vals):

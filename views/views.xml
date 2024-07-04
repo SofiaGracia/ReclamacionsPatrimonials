@@ -10,7 +10,7 @@
         <tree string="Llista de Reclamacions">
           <field name="name" />
           <field name="tipus_dany" />
-          <!-- Otros campos que desees mostrar en la vista de lista -->
+          <field name="descripcio_dany"/>
         </tree>
       </field>
     </record>
@@ -25,6 +25,7 @@
               <field name="tipus_dany" />
               <field name="matriculas_afectadas" attrs="{'invisible': [('tipus_dany', '!=', 'vehicle')]}"/>
               <field name="ciudadano_id" />
+              <field name="descripcio_dany"/>
             </group>
           </sheet>
         </form>
