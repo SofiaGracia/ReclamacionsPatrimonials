@@ -27,6 +27,7 @@
         'security/ir.model.access.csv',
         'views/views.xml',
         'views/matricula.xml',
+        'views/documentacio.xml',
         'data/sequence.xml',
         'views/templates.xml',
     ],

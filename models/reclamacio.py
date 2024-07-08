@@ -2,8 +2,13 @@
 from odoo import models, fields, api
 
 class Reclamacio(models.Model):
+
+    
+
     _name = 'reclamacio.patrimonial'
     _description = 'Reclamació Patrimonial'
+    #Tindria que posar que hereta de az_expedients.expedient no?
+    #_inherit = ['az_expedients.expedient']
 
     name = fields.Char(string='Identificador', required=True, copy=False, readonly=True, default='Nova Reclamació')
 
@@ -20,10 +25,56 @@ class Reclamacio(models.Model):
 
     ciudadano_id = fields.Many2many('res.partner', string='Ciudadano')
 
-    descripcio_dany = fields.Text(string='Descripción del Daño')
+    descripcio_dany = fields.Text(string='Descripció del dany')
 
-    #Hi ha que posar la localització del dany
+    #Localització del dany
+    tipus_via = fields.Selection([
+        ('avinguda', 'Avinguda'),
+        ('cami', 'Cami'),
+        ('carrer', 'Carrer'),
+        ('carretera', 'Carretera'),
+        ('passeig', 'Passeig'),
+        ('plaça', 'Plaça'),
+        ('travessera', 'Travessera'),
+    ], string='Tipus de via')
 
+    nom_via = fields.Text(string='Nom de la via')
+
+    numero_via = fields.Char(string='Número de la via')
+
+    pis = fields.Char(string='Pis')
+
+    escala = fields.Char(string='Escala')
+
+    planta = fields.Char(string='Planta')
+
+    porta = fields.Char(string='Porta')
+
+    referencia_cadastral = fields.Text(string='Referència Cadastral')
+
+    poligon_parcela = fields.Char(string='Poligon i parcel·la')
+
+    adreca_no_estructurada = fields.Text(string='Adreça no estructurada')
+
+    import_valoracio = fields.Monetary(string='Import Valoració')#No ho tinc massa clar
+
+    #Ens falta lo de la subsanació dels danys
+
+    observacions = fields.Text(string='Observacions')
+
+    #Relacionar amb documents
+    documents_ids = fields.One2many('az_documents.document', 'reclamacio_id', string = 'Documentos')
+
+    #Redactor del document (A part de la informació que ja haurem posat en la relació amb documents)
+    redactor_doc = fields.Selection([
+        ('particular', 'Particular'),
+        ('inspector', 'Inspector'),
+        ('brigada', 'Brigada'),
+        ('policia', 'Policia'),
+        ('empresa concessionària', 'Empresa concessionària'),
+        ('tècnic ajuntament', 'Tècnic ajuntament'),
+        ('tècnic extern', 'Tècnic extern')
+    ], string='Redactor del document')
 
     @api.model
     def create(self, vals):
