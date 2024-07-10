@@ -26,6 +26,20 @@
               <field name="matriculas_afectadas" attrs="{'invisible': [('tipus_dany', '!=', 'vehicle')]}"/>
               <field name="ciudadano_id" />
               <field name="descripcio_dany"/>
+              <field name="tipus_via"/>
+              <field name="nom_via"/>
+              <field name="numero_via"/>
+              <field name="pis"/>
+              <field name="escala"/>
+              <field name="planta"/>
+              <field name="porta"/>
+              <field name="referencia_cadastral"/>
+              <field name="poligon_parcela"/>
+              <field name="adreca_no_estructurada"/>
+              <field name="import_valoracio"/>
+              <field name="observacions"/>
+              <field name="redactor_doc"/>
+              <field name="documents_ids"/>
             </group>
           </sheet>
         </form>

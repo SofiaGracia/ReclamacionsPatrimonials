@@ -3,12 +3,8 @@ from odoo import models, fields, api
 
 class Reclamacio(models.Model):
 
-    
-
     _name = 'reclamacio.patrimonial'
     _description = 'Reclamació Patrimonial'
-    #Tindria que posar que hereta de az_expedients.expedient no?
-    #_inherit = ['az_expedients.expedient']
 
     name = fields.Char(string='Identificador', required=True, copy=False, readonly=True, default='Nova Reclamació')
 
@@ -56,9 +52,10 @@ class Reclamacio(models.Model):
 
     adreca_no_estructurada = fields.Text(string='Adreça no estructurada')
 
-    import_valoracio = fields.Monetary(string='Import Valoració')#No ho tinc massa clar
+    import_valoracio = fields.Text(string='Import Valoració')#No ho tinc massa clar
 
     #Ens falta lo de la subsanació dels danys
+    #I persones interesades??
 
     observacions = fields.Text(string='Observacions')
 

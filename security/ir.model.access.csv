@@ -1,4 +1,3 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
 access_reclamacio_patrimonial,reclamacio.patrimonial,model_reclamacio_patrimonial,base.group_user,1,1,1,1
 access_reclamacio_matricula,reclamacio.matricula,model_reclamacio_matricula,base.group_user,1,1,1,1
-access_documentacio_patrimonial,documentacio.patrimonial,model_documentacio_patrimonial,base.group_user,1,1,1,1

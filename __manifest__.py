@@ -20,14 +20,13 @@
     'version': '0.1',
 
     # any module necessary for this one to work correctly
-    'depends': ['base'],
+    'depends': ['base','az_documents'],
 
     # always loaded
     'data': [
         'security/ir.model.access.csv',
         'views/views.xml',
         'views/matricula.xml',
-        'views/documentacio.xml',
         'data/sequence.xml',
         'views/templates.xml',
     ],
